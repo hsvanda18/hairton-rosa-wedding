@@ -241,6 +241,20 @@ section {
   color: var(--soft);
   line-height: 1.7;
 }
+.story-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+  /* filtro warm: suaviza o fundo rosa e harmoniza com o tema rústico */
+  filter: sepia(0.22) saturate(0.82) contrast(1.07) brightness(1.03) hue-rotate(-10deg);
+  transition: filter .4s ease;
+}
+.story-photo:hover {
+  filter: sepia(0.08) saturate(1) contrast(1.04) brightness(1.05) hue-rotate(0deg);
+}
+
 .story-ornament {
   position: absolute;
   bottom: -20px; right: -20px;

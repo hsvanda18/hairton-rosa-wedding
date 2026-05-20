@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 
-const MAPS_URL = 'https://www.google.com/maps/search/Paróquia+de+São+Lucas+Zango+Angola'
+const MAPS_URL = 'https://www.google.com/maps/place/Par%C3%B3quia+de+S%C3%A3o+Lucas+-+Zango+I/data=!4m2!3m1!1s0x0:0xfbcd51337d57cf06?sa=X&ved=1t:2428&ictx=111'
 
 export default function Ceremony() {
   return (
@@ -35,7 +35,7 @@ export default function Ceremony() {
               <dt>Local</dt>
               <dd>Paróquia de São Lucas</dd>
               <dt>Endereço</dt>
-              <dd>Icolo e Bengo · Zango, Luanda</dd>
+              <dd>Icolo e Bengo · Zango</dd>
             </dl>
             <a
               className="map-link-btn"

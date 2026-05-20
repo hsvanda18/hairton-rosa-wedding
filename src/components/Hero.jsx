@@ -71,7 +71,7 @@ export default function Hero() {
       </div>
 
       <p className="hero-date">03 · 07 · 2026</p>
-      <p className="hero-location">Paróquia de São Lucas · Zango, Luanda</p>
+      <p className="hero-location">Paróquia de São Lucas · Zango, Icolo & Bengo</p>
 
       <div className="hero-cta">
         <a href="#rsvp" className="btn">Confirmar Presença</a>

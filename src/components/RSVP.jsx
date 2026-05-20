@@ -3,7 +3,7 @@ import Reveal from './Reveal'
 
 // Web3Forms — 250 submissões/mês gratuitas.
 // Obtém a tua chave em: https://web3forms.com (introduz o email e recebes a chave)
-const WEB3FORMS_KEY = 'SUBSTITUI_PELA_TUA_CHAVE'
+const WEB3FORMS_KEY = '557a640d-bca2-4fe2-a4bc-a4b0bb82be54'
 
 export default function RSVP() {
   const [sent, setSent]       = useState(false)

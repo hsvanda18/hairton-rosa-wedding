@@ -22,47 +22,55 @@ export default function Hero() {
     <header className="hero">
       <div className="hero-bg" />
 
-      <svg
-        className="botanical botanical-tl"
-        viewBox="0 0 300 300"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ transform: `rotate(-15deg) translateY(${parallax * -0.6}px)` }}
-      >
+      <svg className="botanical botanical-tl" viewBox="0 0 300 300" fill="none"
+        style={{ transform: `rotate(-15deg) translateY(${parallax * -0.6}px)` }}>
         <BotanicalPath />
       </svg>
-
-      <svg
-        className="botanical botanical-br"
-        viewBox="0 0 300 300"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ transform: `rotate(165deg) translateY(${parallax * 0.4}px)` }}
-      >
+      <svg className="botanical botanical-br" viewBox="0 0 300 300" fill="none"
+        style={{ transform: `rotate(165deg) translateY(${parallax * 0.4}px)` }}>
         <BotanicalPath />
       </svg>
-
-      <svg
-        className="botanical botanical-tr"
-        viewBox="0 0 300 300"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ transform: `rotate(20deg) scaleX(-1) translateY(${parallax * -0.3}px)` }}
-      >
+      <svg className="botanical botanical-tr" viewBox="0 0 300 300" fill="none"
+        style={{ transform: `rotate(20deg) scaleX(-1) translateY(${parallax * -0.3}px)` }}>
         <BotanicalPath />
       </svg>
 
       <Petals />
 
-      <p className="hero-eyebrow">Convidam-vos a celebrar o seu casamento</p>
+      <p className="hero-eyebrow">Convite de Casamento</p>
 
+      {/* Pais do Noivo */}
+      <div className="hero-parents hero-parents--groom">
+        <span className="hero-parents-label">Pais do Noivo</span>
+        <p>
+          <span className="in-memoriam">Simão Ntoni</span>
+          {' '}·{' '}
+          Isabel Palanca
+        </p>
+      </div>
+
+      <div className="hero-parents-divider">
+        <span /><span className="hero-parents-diamond">◆</span><span />
+      </div>
+
+      {/* Casal */}
       <h1 className="hero-names">
         <em>Hairton</em>
         <span className="hero-amp">&amp;</span>
         <em>Rosa</em>
       </h1>
 
-      <div className="hero-divider">
+      <div className="hero-parents-divider">
+        <span /><span className="hero-parents-diamond">◆</span><span />
+      </div>
+
+      {/* Pais da Noiva */}
+      <div className="hero-parents hero-parents--bride">
+        <span className="hero-parents-label">Pais da Noiva</span>
+        <p>Quiassunga Adolfo · Cristina Branca José</p>
+      </div>
+
+      <div className="hero-divider" style={{ marginTop: '32px' }}>
         <span />
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
           <path d="M8 0 L9.5 6 L16 8 L9.5 10 L8 16 L6.5 10 L0 8 L6.5 6 Z"/>
@@ -71,7 +79,7 @@ export default function Hero() {
       </div>
 
       <p className="hero-date">03 · 07 · 2026</p>
-      <p className="hero-location">Paróquia de São Lucas · Zango, Icolo & Bengo</p>
+      <p className="hero-location">Paróquia de São Lucas · Zango, Icolo &amp; Bengo</p>
 
       <div className="hero-cta">
         <a href="#rsvp" className="btn">Confirmar Presença</a>

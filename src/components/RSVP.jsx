@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
 
-// FormSubmit — gratuito, sem limite. Na primeira submissão vais receber
-// um email de confirmação no teu endereço para activar o formulário.
-const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/hsvanda18@gmail.com'
+// Web3Forms — 250 submissões/mês gratuitas.
+// Obtém a tua chave em: https://web3forms.com (introduz o email e recebes a chave)
+const WEB3FORMS_KEY = 'SUBSTITUI_PELA_TUA_CHAVE'
 
 export default function RSVP() {
   const [sent, setSent]       = useState(false)
@@ -24,17 +24,18 @@ export default function RSVP() {
     setLoading(true)
     setError(false)
     try {
-      const res = await fetch(FORMSUBMIT_URL, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject:    `RSVP Casamento — ${form.nome} ${form.apelido}`,
+          from_name:  'Site do Casamento',
           ...form,
-          _subject: `RSVP Casamento — ${form.nome} ${form.apelido}`,
-          _captcha: 'false',
         }),
       })
       const data = await res.json()
-      if (data.success === 'true' || data.success === true) {
+      if (data.success) {
         setSent(true)
       } else {
         setError(true)

@@ -102,9 +102,6 @@ export default function RSVP() {
                   <select id="acompanhantes" name="acompanhantes" value={form.acompanhantes} onChange={handleChange}>
                     <option value="Venho sozinho/a">Venho sozinho/a</option>
                     <option value="+ 1 acompanhante">+ 1 acompanhante</option>
-                    <option value="+ 2 acompanhantes">+ 2 acompanhantes</option>
-                    <option value="+ 3 acompanhantes">+ 3 acompanhantes</option>
-                    <option value="+ 4 acompanhantes">+ 4 acompanhantes</option>
                   </select>
                 </div>
               )}

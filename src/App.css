@@ -524,6 +524,54 @@ footer p {
   border-radius: 50%;
 }
 
+/* ── BIBLE VERSE ─────────────────────────────────────────────────── */
+.verse-section {
+  background: var(--ink);
+  padding: clamp(56px, 10vw, 100px) clamp(24px, 8vw, 80px);
+}
+.verse-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.verse-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(80px, 14vw, 140px);
+  line-height: .6;
+  color: var(--sand);
+  opacity: .25;
+  margin-bottom: 8px;
+  user-select: none;
+}
+.verse-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--parchment);
+  line-height: 1.85;
+  margin: 0 0 32px;
+}
+.verse-ref {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--sand);
+  font-family: 'Jost', sans-serif;
+  font-size: .7rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  opacity: .7;
+}
+.verse-line {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--sand);
+  opacity: .4;
+}
+
 /* ── BOTANICAL PATH DRAWING ──────────────────────────────────────── */
 @keyframes drawPath {
   from { stroke-dashoffset: 1000; opacity: 0; }

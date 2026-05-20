@@ -6,7 +6,7 @@ import Reveal from './Reveal'
 const WEB3FORMS_KEY = '557a640d-bca2-4fe2-a4bc-a4b0bb82be54'
 
 export default function RSVP() {
-  const [sent, setSent]       = useState(false)
+  const [sent, setSent]       = useState(() => localStorage.getItem('rsvp_sent') === 'true')
   const [loading, setLoading] = useState(false)
   const [error, setError]     = useState(false)
   const [form, setForm]       = useState({
@@ -36,6 +36,7 @@ export default function RSVP() {
       })
       const data = await res.json()
       if (data.success) {
+        localStorage.setItem('rsvp_sent', 'true')
         setSent(true)
       } else {
         setError(true)

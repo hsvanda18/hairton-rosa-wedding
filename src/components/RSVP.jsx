@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import Reveal from './Reveal'
 
-// Cria conta gratuita em formspree.io e substitui o ID abaixo
-const FORMSPREE_URL = 'https://formspree.io/f/SEU_ID_AQUI'
+// FormSubmit — gratuito, sem limite. Na primeira submissão vais receber
+// um email de confirmação no teu endereço para activar o formulário.
+const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/hsvanda18@gmail.com'
 
 export default function RSVP() {
-  const [sent, setSent] = useState(false)
+  const [sent, setSent]       = useState(false)
   const [loading, setLoading] = useState(false)
-  const [form, setForm] = useState({
+  const [error, setError]     = useState(false)
+  const [form, setForm]       = useState({
     nome: '', apelido: '', telefone: '',
     confirmacao: '', acompanhantes: '0', mensagem: '',
   })
@@ -20,13 +22,25 @@ export default function RSVP() {
     e.preventDefault()
     if (!form.nome || !form.confirmacao) return
     setLoading(true)
+    setError(false)
     try {
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch(FORMSUBMIT_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          _subject: `RSVP Casamento — ${form.nome} ${form.apelido}`,
+          _captcha: 'false',
+        }),
       })
-      if (res.ok) setSent(true)
+      const data = await res.json()
+      if (data.success === 'true' || data.success === true) {
+        setSent(true)
+      } else {
+        setError(true)
+      }
+    } catch {
+      setError(true)
     } finally {
       setLoading(false)
     }
@@ -75,20 +89,20 @@ export default function RSVP() {
                 <label htmlFor="confirmacao">Confirmo a minha presença</label>
                 <select id="confirmacao" name="confirmacao" required value={form.confirmacao} onChange={handleChange}>
                   <option value="">— Selecciona uma opção —</option>
-                  <option value="sim">✓ Sim, estarei presente!</option>
-                  <option value="nao">✗ Infelizmente não poderei comparecer</option>
+                  <option value="Sim, estarei presente!">✓ Sim, estarei presente!</option>
+                  <option value="Infelizmente não poderei comparecer">✗ Infelizmente não poderei comparecer</option>
                 </select>
               </div>
 
-              {form.confirmacao === 'sim' && (
+              {form.confirmacao === 'Sim, estarei presente!' && (
                 <div className="field-group">
                   <label htmlFor="acompanhantes">Número de acompanhantes</label>
                   <select id="acompanhantes" name="acompanhantes" value={form.acompanhantes} onChange={handleChange}>
-                    <option value="0">Venho sozinho/a</option>
-                    <option value="1">+ 1 acompanhante</option>
-                    <option value="2">+ 2 acompanhantes</option>
-                    <option value="3">+ 3 acompanhantes</option>
-                    <option value="4">+ 4 acompanhantes</option>
+                    <option value="Venho sozinho/a">Venho sozinho/a</option>
+                    <option value="+ 1 acompanhante">+ 1 acompanhante</option>
+                    <option value="+ 2 acompanhantes">+ 2 acompanhantes</option>
+                    <option value="+ 3 acompanhantes">+ 3 acompanhantes</option>
+                    <option value="+ 4 acompanhantes">+ 4 acompanhantes</option>
                   </select>
                 </div>
               )}
@@ -97,6 +111,12 @@ export default function RSVP() {
                 <label htmlFor="mensagem">Mensagem para os noivos (opcional)</label>
                 <textarea id="mensagem" name="mensagem" placeholder="Deixa uma mensagem especial para o casal…" value={form.mensagem} onChange={handleChange} />
               </div>
+
+              {error && (
+                <p style={{ color: 'var(--terracota)', fontSize: '.85rem', marginBottom: '12px' }}>
+                  Ocorreu um erro ao enviar. Tenta novamente ou contacta directamente pelo WhatsApp.
+                </p>
+              )}
 
               <button type="submit" className="rsvp-submit" disabled={loading}>
                 {loading ? 'A enviar…' : 'Confirmar Presença'}

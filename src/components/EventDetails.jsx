@@ -1,4 +1,5 @@
-const MAPS_QUERY = 'Paróquia+de+São+Lucas+Zango+Angola'
+const MAPS_CHURCH = 'https://www.google.com/maps/search/Par%C3%B3quia+de+S%C3%A3o+Lucas+Zango+Angola'
+const MAPS_RECEPTION = 'https://maps.app.goo.gl/WK3AqqfnywyJ1Nr36'
 
 export default function EventDetails() {
   return (
@@ -17,20 +18,28 @@ export default function EventDetails() {
           </div>
 
           <div className="detail-card">
-            <span className="detail-icon">🕕</span>
-            <p className="detail-title">Horário</p>
-            <p className="detail-main">18h00</p>
-            <p className="detail-sub">Por favor, chegue com antecedência</p>
+            <span className="detail-icon">⛪</span>
+            <p className="detail-title">Missa</p>
+            <p className="detail-main">17h00</p>
+            <p className="detail-sub">Paróquia de São Lucas · Zango</p>
+            <a
+              className="map-link"
+              href={MAPS_CHURCH}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ver no mapa
+            </a>
           </div>
 
           <div className="detail-card">
-            <span className="detail-icon">⛪</span>
-            <p className="detail-title">Local</p>
-            <p className="detail-main">Paróquia de São Lucas</p>
-            <p className="detail-sub">Icolo e Bengo · Zango · Angola</p>
+            <span className="detail-icon">🥂</span>
+            <p className="detail-title">Copo de Água</p>
+            <p className="detail-main">19h00</p>
+            <p className="detail-sub">Paraíso do Zango · Zango 4</p>
             <a
               className="map-link"
-              href={`https://www.google.com/maps/search/${MAPS_QUERY}`}
+              href={MAPS_RECEPTION}
               target="_blank"
               rel="noreferrer"
             >
